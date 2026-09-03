@@ -37,9 +37,13 @@ Push to `main` → Netlify auto-deploys. No build command; publish directory is 
 
 ## Before launch — checklist
 
-- [ ] Replace placeholder copy on `/music/` (sound description, extra releases) and `/about/` (personal story, booking lead-time FAQ)
-- [ ] Swap in final hi-res press photos on `/press/` + wire the download links to a real EPK PDF and photo zip in `assets/docs`
-- [ ] Confirm the two YouTube video IDs / add more
-- [ ] Set the Netlify Forms email notification
-- [ ] Point the domain + confirm HTTPS
+Every page ships real content only — no placeholders. Where something didn't
+exist yet it was removed, not stubbed: `/music/` has one release + two clips;
+`/about/` is bio + brand statement (no personal-history section yet); `/press/`
+has no PDF/zip downloads (the page is the kit).
+
+- [ ] Set the Netlify Forms email notification → ginevebase@gmail.com
+- [ ] Confirm HTTPS on the custom domain
 - [ ] Add analytics (GoatCounter / Plausible) — one script tag in each page `<head>`
+- [ ] Optional: swap the softer phone photos for higher-res versions
+- [ ] Add more releases / videos / an About story as Gineve supplies them

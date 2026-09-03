@@ -40,7 +40,7 @@ body {
 
 h1, h2, h3, h4 { font-family: var(--serif); font-weight: 800; line-height: 1.05; margin: 0; }
 
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 
 a { color: var(--gold-lt); text-decoration: none; transition: color .18s ease; }
 a:hover { color: var(--cream); }
@@ -232,15 +232,15 @@ html.js .reveal:not(.is-visible) { opacity: 0; transform: translateY(24px); }
 .lite-yt__label { position: absolute; left: 16px; bottom: 14px; z-index: 1; font-size: 13px; color: var(--cream); }
 .lite-yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-/* ---- Placeholder chip (Music / About) ------------------------- */
+/* ---- Release feature (Music) --------------------------------- */
 
-.ph-chip {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--sans); font-weight: 700; font-size: 10px;
-  letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
-  border: 1px solid rgba(201,150,46,0.4); border-radius: 999px; padding: 5px 12px;
+.release {
+  display: grid; grid-template-columns: 300px 1fr;
+  gap: clamp(24px, 4vw, 48px); align-items: center; max-width: 840px;
 }
-.ph-note { color: var(--cream-55); font-style: italic; }
+@media (max-width: 640px) {
+  .release { grid-template-columns: 1fr; max-width: 420px; }
+}
 
 /* ---- Forms (Book) -------------------------------------------- */
 
