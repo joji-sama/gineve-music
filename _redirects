@@ -1,0 +1,7 @@
+# Placeholder for future redirects.
+# When gineve.com is purchased, add a domain-level redirect in Netlify,
+# or (if pointed at this site) uncomment:
+# https://gineve.com/*   https://ginevemusic.com/:splat   301!
+
+# Pretty-URL safety nets for the flat .html era (harmless if unused):
+/index.html   /            301

@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gineve Music — ginevemusic.com
 
-## Getting Started
+Static marketing site for Gineve (Nigerian jazz & soul vocalist) and Gineve Music
+(live-entertainment booking brand). Plain HTML/CSS/JS, deployed on Netlify.
 
-First, run the development server:
+## Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+/                 index.html          Home
+/music/           music/index.html    Music / EPK
+/book/            book/index.html     Booking (Netlify Forms → ginevebase@gmail.com)
+/press/           press/index.html    Press / EPK
+/about/           about/index.html    About / Contact
+/assets/images/   images (WebP), favicons, EPK PDF (assets/docs)
+/css/styles.css   all styles + design tokens (:root)
+/js/main.js       nav toggle, scroll reveal, lite YouTube embeds, form success
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Text** lives directly in the `.html` files. Nav and footer are duplicated in
+  each page — if you change one, change all five (search for `site-header` / `site-footer`).
+- **Colours / fonts** are CSS variables at the top of `css/styles.css` (`:root`).
+- **Images**: drop a WebP into `assets/images/` and update the `src`. Keep them
+  optimised (< ~150 KB). Every `<img>` needs real `alt` text.
+- **Videos** are YouTube embeds — set `data-yt="<video id>"` on the `.lite-yt` block.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deploy
 
-## Learn More
+Push to `main` → Netlify auto-deploys. No build command; publish directory is the repo root.
 
-To learn more about Next.js, take a look at the following resources:
+- **Forms**: the `/book/` form uses Netlify Forms (`data-netlify="true"` + hidden
+  `form-name`). Submissions appear in the Netlify dashboard; add an email
+  notification to `ginevebase@gmail.com` under Site settings → Forms → Notifications.
+- **Domain**: add `ginevemusic.com` in Netlify → Domain management, then set the
+  DNS records it gives you at the registrar. SSL is automatic.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Before launch — checklist
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Replace placeholder copy on `/music/` (sound description, extra releases) and `/about/` (personal story, booking lead-time FAQ)
+- [ ] Swap in final hi-res press photos on `/press/` + wire the download links to a real EPK PDF and photo zip in `assets/docs`
+- [ ] Confirm the two YouTube video IDs / add more
+- [ ] Set the Netlify Forms email notification
+- [ ] Point the domain + confirm HTTPS
+- [ ] Add analytics (GoatCounter / Plausible) — one script tag in each page `<head>`
