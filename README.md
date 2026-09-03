@@ -11,10 +11,15 @@ Static marketing site for Gineve (Nigerian jazz & soul vocalist) and Gineve Musi
 /book/            book/index.html     Booking (Netlify Forms → ginevebase@gmail.com)
 /press/           press/index.html    Press / EPK
 /about/           about/index.html    About / Contact
-/assets/images/   images (WebP), favicons, EPK PDF (assets/docs)
-/css/styles.css   all styles + design tokens (:root)
-/js/main.js       nav toggle, scroll reveal, lite YouTube embeds, form success
+/assets/images/   images (WebP), favicons
+/css/styles.css   all styles + design tokens (:root)  — linked as ?v=N
+/js/main.js       nav toggle, scroll reveal, lite YouTube embeds, form  — linked as ?v=N
 ```
+
+**Cache-busting:** `styles.css` and `main.js` are linked with `?v=2`. After
+editing either, bump that number everywhere it appears (`?v=3`, …) so returning
+visitors get the new file immediately. `netlify.toml` also tells browsers to
+revalidate CSS/JS every load, so this is belt-and-suspenders.
 
 ## Editing content
 
@@ -29,9 +34,13 @@ Static marketing site for Gineve (Nigerian jazz & soul vocalist) and Gineve Musi
 
 Push to `main` → Netlify auto-deploys. No build command; publish directory is the repo root.
 
-- **Forms**: the `/book/` form uses Netlify Forms (`data-netlify="true"` + hidden
-  `form-name`). Submissions appear in the Netlify dashboard; add an email
-  notification to `ginevebase@gmail.com` under Site settings → Forms → Notifications.
+- **Forms**: the `/book/` form uses **Netlify Forms** (`data-netlify="true"` +
+  hidden `form-name` + honeypot). This needs **Form detection enabled** on the
+  Netlify site (Site configuration → Forms), then a fresh deploy so Netlify
+  scans the HTML. After that, submissions land in the Netlify dashboard under
+  Forms → `booking`; add an email notification to `ginevebase@gmail.com` there.
+  `js/main.js` submits via `fetch` and shows an inline thank-you; with JS off it
+  falls back to a normal POST that redirects to `/book/thanks/`.
 - **Domain**: add `ginevemusic.com` in Netlify → Domain management, then set the
   DNS records it gives you at the registrar. SSL is automatic.
 
