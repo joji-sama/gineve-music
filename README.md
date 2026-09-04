@@ -34,13 +34,13 @@ revalidate CSS/JS every load, so this is belt-and-suspenders.
 
 Push to `main` → Netlify auto-deploys. No build command; publish directory is the repo root.
 
-- **Forms**: the `/book/` form uses **Netlify Forms** (`data-netlify="true"` +
-  hidden `form-name` + honeypot). This needs **Form detection enabled** on the
-  Netlify site (Site configuration → Forms), then a fresh deploy so Netlify
-  scans the HTML. After that, submissions land in the Netlify dashboard under
-  Forms → `booking`; add an email notification to `ginevebase@gmail.com` there.
-  `js/main.js` submits via `fetch` and shows an inline thank-you; with JS off it
-  falls back to a normal POST that redirects to `/book/thanks/`.
+- **Forms**: the `/book/` form posts to **Formspree** (`formspree.io/f/xdalekga`).
+  `js/main.js` submits it via `fetch` and shows an inline thank-you; with JS off
+  it does a normal POST and Formspree redirects to `/book/thanks/` (`_next`).
+  On failure the page shows a mailto fallback instead of an error.
+  Check/adjust the notification email + settings in the Formspree dashboard for
+  that form (`_subject` is set to "New booking inquiry — ginevemusic.com").
+  No Netlify Forms config is used.
 - **Domain**: add `ginevemusic.com` in Netlify → Domain management, then set the
   DNS records it gives you at the registrar. SSL is automatic.
 

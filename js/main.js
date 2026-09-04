@@ -75,33 +75,35 @@
     });
   });
 
-  /* ---- Booking form: inline success ------------------------------- */
-  var form = document.querySelector('form[data-netlify]');
+  /* ---- Booking form: AJAX submit to Formspree -------------------- */
+  var form = document.getElementById('booking-form');
   if (form) {
-    var submitting = false;
+    var sending = false;
     form.addEventListener('submit', function (e) {
-      if (submitting) { return; }          // let the native submit through on retry
       e.preventDefault();
-      submitting = true;
-      var data = new URLSearchParams(new FormData(form)).toString();
-      fetch('/', {
+      if (sending) { return; }
+      var btn = form.querySelector('button[type="submit"]');
+      sending = true;
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      fetch(form.action, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: data
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
       }).then(function (r) {
-        if (!r.ok) { throw new Error('bad status'); }
-        showSuccess();
+        if (r.ok) { revealPanel('form-success'); }
+        else { throw new Error('status ' + r.status); }
       }).catch(function () {
-        // Network/hosting issue — fall back to a full-page submit so the
-        // inquiry still reaches Netlify (redirects to /book/thanks/).
-        form.submit();
+        revealPanel('form-error');
+      }).then(function () {
+        sending = false;
+        if (btn) { btn.disabled = false; btn.textContent = 'Send Inquiry'; }
       });
     });
   }
-  function showSuccess() {
-    var panel = document.getElementById('form-success');
+  function revealPanel(id) {
+    var panel = document.getElementById(id);
     if (!panel) { return; }
-    form.hidden = true;
+    if (id === 'form-success') { form.hidden = true; }
     panel.hidden = false;
     panel.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
   }

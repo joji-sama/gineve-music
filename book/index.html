@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,500&family=Karla:wght@300;400;500;700&display=swap">
-  <link rel="stylesheet" href="/css/styles.css?v=2">
+  <link rel="stylesheet" href="/css/styles.css?v=3">
 </head>
 <body>
 
@@ -136,7 +136,7 @@
     <section class="section">
       <div class="wrap">
         <p class="eyebrow reveal" style="text-align:center; margin-bottom:44px;">What Clients Say</p>
-        <div class="grid" style="grid-template-columns:1.5fr 1fr; align-items:start;">
+        <div class="two-col" style="align-items:start;">
           <figure class="card reveal" style="padding:40px; margin:0;">
             <div class="quote__mark" style="font-size:4rem; line-height:.2; height:34px;" aria-hidden="true">&ldquo;</div>
             <blockquote style="font-family:var(--serif); font-style:italic; font-size:1.15rem; line-height:1.6; margin:0 0 20px;">
@@ -172,9 +172,10 @@
           and estimated number of guests.
         </p>
 
-        <form name="booking" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/book/thanks/" class="form-grid reveal">
-          <input type="hidden" name="form-name" value="booking">
-          <p hidden><label>Don’t fill this out: <input name="bot-field"></label></p>
+        <form id="booking-form" method="POST" action="https://formspree.io/f/xdalekga" class="form-grid reveal">
+          <input type="hidden" name="_subject" value="New booking inquiry — ginevemusic.com">
+          <input type="hidden" name="_next" value="https://ginevemusic.com/book/thanks/">
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
 
           <div class="field"><label for="f-name">Name</label><input id="f-name" type="text" name="name" required autocomplete="name" placeholder="Your full name"></div>
           <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com"></div>
@@ -205,6 +206,13 @@
           <p class="eyebrow" style="margin-bottom:8px;">Inquiry received</p>
           <p>Thank you for your inquiry — we look forward to performing at your event. Gineve Music
           will respond with availability and a detailed quotation shortly.</p>
+        </div>
+
+        <div class="form-success" id="form-error" hidden style="border-color:rgba(245,239,230,.25); background:rgba(245,239,230,.03);">
+          <p class="eyebrow" style="margin-bottom:8px;">Couldn’t send just now</p>
+          <p style="font-style:normal; font-family:var(--sans);">Please email your event details to
+          <a href="mailto:ginevebase@gmail.com?subject=Booking%20inquiry">ginevebase@gmail.com</a>
+          or call <a href="tel:+2348086805415">+234&nbsp;808&nbsp;680&nbsp;5415</a> and we’ll take it from there.</p>
         </div>
       </div>
     </section>
@@ -239,6 +247,6 @@
     </div>
   </footer>
 
-  <script src="/js/main.js?v=2" defer></script>
+  <script src="/js/main.js?v=3" defer></script>
 </body>
 </html>
