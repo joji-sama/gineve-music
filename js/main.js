@@ -87,7 +87,12 @@
       sending = true;
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
       fetch(form.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
-        .then(function (r) { if (!r.ok) { throw new Error('status ' + r.status); } showPanel('form-success'); })
+        .then(function (r) {
+          if (!r.ok) { throw new Error('status ' + r.status); }
+          var d = new FormData(form);
+          if (window.gmTrack) { window.gmTrack('track', 'Lead', { content_name: d.get('event-type') || 'Booking enquiry', city: d.get('city') || '' }); }
+          showPanel('form-success');
+        })
         .catch(function () { showPanel('form-error'); })
         .then(function () { sending = false; if (btn) { btn.disabled = false; btn.innerHTML = label; } });
     });
