@@ -4,17 +4,24 @@
   <meta charset="utf-8">
   <script>document.documentElement.className=document.documentElement.className.replace(/no-js/,"js");</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gineve — Singer &amp; Live Performer | Gineve Music</title>
+  <title>Gineve — Nigerian Singer &amp; Live Performer | Wanna Love</title>
   <meta name="description" content="Meet Gineve (Eve Otokpa): singer and live performer across jazz, R&amp;B and Afro-soul. Latest single Wanna Love, live performance videos, and links to stream on Spotify and Apple Music.">
   <link rel="canonical" href="https://ginevemusic.com/artist/">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Gineve Music">
-  <meta property="og:title" content="Gineve — Singer &amp; Live Performer">
+  <meta property="og:title" content="Gineve — Nigerian Singer &amp; Live Performer">
   <meta property="og:description" content="Songs, videos and music from Gineve. Latest single: Wanna Love.">
   <meta property="og:url" content="https://ginevemusic.com/artist/">
   <meta property="og:image" content="https://ginevemusic.com/assets/images/og-image.jpg">
+  <meta property="og:locale" content="en_NG">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gineve — Nigerian Singer &amp; Live Performer">
+  <meta name="twitter:description" content="Songs, videos and music from Gineve. Latest single: Wanna Love.">
+  <meta name="twitter:image" content="https://ginevemusic.com/assets/images/og-image.jpg">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#0a0a0a">
 
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -29,20 +36,56 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MusicGroup",
-    "name": "Gineve",
-    "alternateName": "Eve Otokpa",
-    "genre": ["Jazz", "Soul", "R&B", "Afro-soul"],
-    "url": "https://ginevemusic.com/artist/",
-    "sameAs": [
-      "https://www.instagram.com/gineve_musicc/",
-      "https://www.youtube.com/@gineve_music",
-      "https://open.spotify.com/artist/1UxlZREZygo7rnnSDp4r8U"
+    "@graph": [
+      {
+        "@type": "MusicGroup",
+        "@id": "https://ginevemusic.com/artist/#artist",
+        "name": "Gineve",
+        "alternateName": "Eve Otokpa",
+        "genre": [
+          "Jazz",
+          "Soul",
+          "R&B",
+          "Afro-soul"
+        ],
+        "url": "https://ginevemusic.com/artist/",
+        "image": "https://ginevemusic.com/assets/images/portrait-smile.webp",
+        "sameAs": [
+          "https://open.spotify.com/artist/1UxlZREZygo7rnnSDp4r8U",
+          "https://music.apple.com/ng/album/wanna-love-single/6789399892",
+          "https://www.youtube.com/@gineve_music",
+          "https://www.instagram.com/gineve_musicc/"
+        ],
+        "track": {
+          "@type": "MusicRecording",
+          "name": "Wanna Love",
+          "byArtist": {
+            "@id": "https://ginevemusic.com/artist/#artist"
+          }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Gineve Music",
+            "item": "https://ginevemusic.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Gineve the Artist",
+            "item": "https://ginevemusic.com/artist/"
+          }
+        ]
+      }
     ]
   }
   </script>
 </head>
-<body>
+<body data-page-artist>
 <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -154,10 +197,11 @@
         <a href="https://open.spotify.com/artist/1UxlZREZygo7rnnSDp4r8U" target="_blank" rel="noopener">Spotify</a>
         <a href="https://music.apple.com/ng/album/wanna-love-single/6789399892" target="_blank" rel="noopener">Apple Music</a>
       </div>
-      <p class="site-footer__legal"><span>© <span id="year">2026</span> Gineve Music</span><span>Lagos / Abuja / Nationwide</span><span>ginevemusic.com</span></p>
+      <p class="site-footer__legal"><span>© <span id="year">2026</span> Gineve Music</span><span>Lagos / Abuja / Nationwide</span><a href="/privacy/">Privacy</a></p>
     </div>
   </footer>
 
+  <script src="/js/pixel.js" defer></script>
   <script src="/js/main.js" defer></script>
 </body>
 </html>

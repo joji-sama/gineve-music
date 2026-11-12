@@ -196,6 +196,34 @@ fieldset legend { margin-bottom: 12px; }
 .form-success p { color: #c9c8c3; font-size: 18px; line-height: 1.6; }
 @media (max-width: 560px) { .form { grid-template-columns: 1fr; } }
 
+/* FAQ */
+.faq details { border-top: 1px solid var(--line); }
+.faq details:last-child { border-bottom: 1px solid var(--line); }
+.faq summary { cursor: pointer; list-style: none; padding: 24px 40px 24px 0; font-size: clamp(18px, 2vw, 24px); font-weight: 600; letter-spacing: -.01em; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 28px; font-weight: 400; transition: transform .3s; }
+.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq details p { color: #b3b3ae; font-size: 17px; line-height: 1.65; padding: 0 40px 26px 0; max-width: 40em; }
+.faq a { text-decoration: underline; }
+
+/* Cookie notice */
+.consent { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 80; max-width: 720px; margin-inline: auto; background: var(--paper); color: var(--bg); padding: 18px 20px; display: flex; gap: 18px; align-items: center; justify-content: space-between; flex-wrap: wrap; box-shadow: 0 12px 40px rgba(0,0,0,.5); animation: rise .6s var(--ease) both; }
+.consent p { font-size: 14px; line-height: 1.5; flex: 1; min-width: 240px; }
+.consent a { text-decoration: underline; }
+.consent div { display: flex; gap: 10px; }
+.consent .btn { color: var(--bg); border-color: var(--bg); }
+.consent .btn:hover { background: var(--bg); color: var(--paper); }
+.consent .btn--solid { background: var(--bg); color: var(--paper); }
+.consent .btn--solid:hover { background: transparent; color: var(--bg); }
+
+/* Legal page */
+.legal { padding: 150px 0 80px; max-width: 760px; }
+.legal h1 { font-size: clamp(44px, 7vw, 96px); font-weight: 800; letter-spacing: -.04em; line-height: .92; font-stretch: 84%; margin-bottom: 40px; }
+.legal h2 { font-size: 22px; font-weight: 700; margin: 36px 0 10px; letter-spacing: -.01em; }
+.legal p, .legal li { color: #c9c8c3; font-size: 17px; line-height: 1.7; }
+.legal ul { list-style: disc; padding-left: 22px; }
+.legal a { text-decoration: underline; }
+
 /* Footer */
 .site-footer { padding: clamp(60px, 8vw, 110px) 0 36px; }
 .site-footer__top { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; margin-bottom: 64px; }
