@@ -90,7 +90,7 @@
         .then(function (r) {
           if (!r.ok) { throw new Error('status ' + r.status); }
           var d = new FormData(form);
-          if (window.gmTrack) { window.gmTrack('track', 'Lead', { content_name: d.get('event-type') || 'Booking enquiry', city: d.get('city') || '' }); }
+          if (window.gmTrack) { window.gmTrack('gm_lead', { content_name: d.get('event-type') || 'Booking enquiry', city: d.get('city') || '' }); }
           showPanel('form-success');
         })
         .catch(function () { showPanel('form-error'); })

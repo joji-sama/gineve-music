@@ -41,7 +41,7 @@ Push to `main` → Netlify auto-deploys. No build command; publish directory is 
 ## Before launch
 
 - [ ] Add the hero performance video (optional; the stage photo is the fallback)
-- [ ] Confirm the Instagram handle (`@gineve_musicc` per the portfolio vs the old `@gineve_music`)
+- [ ] Confirm the Instagram handle (now `@g.i.n.e.v.e`)
 - [ ] Longer artist bio / more songs on `/artist/`
 - [ ] Confirm the Formspree form notifies ginevebase@gmail.com
 - [ ] Point the domain + confirm HTTPS; add analytics if wanted
