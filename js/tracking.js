@@ -62,8 +62,7 @@
   function banner() {
     var el = document.createElement('div');
     el.className = 'consent'; el.setAttribute('role', 'region'); el.setAttribute('aria-label', 'Cookie notice');
-    el.innerHTML = '<p>We use Google Tag Manager and a Meta (Facebook) Pixel to measure our ads and understand how visitors use this site. ' +
-      '<a href="/privacy/">Privacy</a></p>' +
+    el.innerHTML = '<p>We use cookies to improve our site and ads. <a href="/privacy/">Learn more</a></p>' +
       '<div><button type="button" class="btn btn--sm" data-c="no">Decline</button>' +
       '<button type="button" class="btn btn--solid btn--sm" data-c="yes">Accept</button></div>';
     el.addEventListener('click', function (e) {
